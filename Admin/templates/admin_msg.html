@@ -1,0 +1,101 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/index.css' %} ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> 
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg py-3 py-lg-0 px-lg-5" id="bar" style="
+        height: 47px;">
+            <a href="{% url 'home' %}" class="navbar-brand ml-lg-3">
+             
+                <img src="{% static 'img/autoz.png' %}" alt="AutoZ" style="width:auto;height:50px;">
+                
+            </a>
+            {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        
+        <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav mx-auto py-0">
+                <a href="{% url 'adminIndex' %}" class="nav-item nav-link active" id="navele">Car List</a>
+                <a href="{% url 'order_list' %}" class="nav-item nav-link" id="navele">Order list</a>
+                <a href="{% url 'car_create' %}" class="nav-item nav-link" id="navele">Add Car</a>
+                <a href="{% url 'message' %}" class="nav-item nav-link" id="navele">Message</a>
+                
+                
+            </div>
+            {% comment %} <a href="{% url 'profile' user.id %}" id="login" class="btn btn-primary py-2 px-4 mx-3 d-none d-lg-block">Profile</a> {% endcomment %}
+            <a href="{% url 'logout' %}" id="register" class="btn btn-primary py-2 px-4 d-none d-lg-block">Logout</a>
+        </div>
+        {% comment %} {% endif %} {% endcomment %}
+        </nav>
+
+        <div class='container table-responsive'>
+            <div class="panel panel-primary">
+              <!-- Default panel contents -->
+              <div class="panel-heading"><h5><strong><span class="glyphicon glyphicon-list"></span> All Mail List</strong></h5> </div>
+                <div class="panel-body">
+              <!-- Table -->
+            
+              <table class="table table-bordered table-striped table-hover">
+            
+               <tr>
+                <td><strong>Sender Name</strong></td>
+                <td><strong>Sender Mail</strong></td>
+                <td><strong>Message</strong></td>
+                <td><strong>Actions</strong></td>
+              </tr>
+            
+                  <tbody>
+                  {% for ob in car %}
+            
+                <tr>
+                <td>{{ob.name}}</td>
+                <td>{{ob.email}}</td>
+                <td>{{ob.message}}</td>
+            
+                <td>
+            
+                     <a href="{% url 'msg_delete' ob.id %}"><button type="button" class="btn btn-danger" onclick="return getConfirmation()"><span class="glyphicon glyphicon-trash"></span></button></a>
+            
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+              </table>
+            
+            <nav>
+              <ul class="pager">
+                <li class="previous">{% if car.has_previous %}
+                        <a href="?page={{ movie.previous_page_number }}" style="background-color:#1aa3ff !important; color: white !important;"><span aria-hidden="true">&larr;</span> Previous</a>
+                {% endif %}
+                </li>
+                  <li class="previous" style="color: black !important;">
+                      Page {{ car.number }} of {{ car.paginator.num_pages }}.
+            
+                </li>
+                <li class="next">{% if car.has_next %}
+                        <a href="?page={{ movie.next_page_number }}" style="background-color:#1aa3ff !important; color: white !important;">
+                    Next <span aria-hidden="true">&rarr;</span></a>{% endif %}</li>
+              </ul>
+            </nav>
+                    <hr>
+            </div>
+            </div>
+            </div>
+</body>
+</html>

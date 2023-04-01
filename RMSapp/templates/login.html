@@ -1,0 +1,60 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/login.css' %} ">
+  <title>Login</title>
+</head>
+<body>
+    
+    <section>
+       
+        <div class="form-box">
+            <div class="form-value">
+                
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <h2 style="color:chartreuse;">Login</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="username" class="form-control" required>
+                        <label for="">Username</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                        <label for="password" >Password</label>
+                    </div>
+                    <div class="forget">
+                        <label for=""><input type="checkbox">Remember Me  <a href="{% url "password_reset" %}">Forget Password</a></label>
+                      
+                    </div>
+                    <button type="submit" id="hover" >Log in</button>
+                    <div class="register">
+                        <p>Don't have a account <a href="{% url 'signup' %}">Register</a></p>
+                    </div>
+                    <h5 >OR</h5>
+                    <h3 >
+						Sign In With
+					</h3>
+                    <div style="display:flex;">
+					<a href="#" class="btn-google mb-4" style="
+                    margin-right: 100px;">
+						<img src="{% static 'images/icons/icon-google.png' %}" alt="GOOGLE">Google</a>
+					<a href="#" class="btn-google mb-4">
+						<img src="{% static 'images/icons/github.png' %}" alt="GITHUB">Github</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

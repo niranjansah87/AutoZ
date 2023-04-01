@@ -1,0 +1,144 @@
+body{
+    background: url('/static/img/account.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1{
+    margin-top: 10%;
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: gold;
+}
+/* button{
+
+    align-content: center;
+    margin-left: 600px;
+    border-radius: 20px;
+    width: 10%;
+    background: aquamarine;
+    height: 30px;
+    cursor: pointer;
+    font-family:Zaptron;
+    font-size: 28px
+}*/
+a{
+    height: 36px;
+    width: 127px;
+    display:block;
+    transition: all 0.5s ease;
+    background-color: black;
+    /* color: white; */
+    border-radius: 20px;
+    margin-left: 20px;
+    top: 50%;
+    left: -379%;
+    transform: translate(-10%, 27%);
+    /* z-index: 10; */
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 28px;
+    font-family: papyrus;
+    
+    text-decoration: none;
+} 
+.box{
+    align-items: center;
+    height: 50px;
+    width: 140px;
+    /* background: black; */
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    margin-left: 858px;
+    margin-top: -50px;
+    border-radius: 30px;
+    position: relative;
+ } 
+
+.box:hover{
+    background: silver;
+    color: gold;
+}
+.outer {
+    margin-left: 600px;
+    height: 50px;
+    width: 140px;
+    border-radius: 40px;
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    position: relative;
+}
+
+button,
+span {
+    margin-left: 600px;
+    position: absolute;
+    top: 50%;
+    left: -379%;
+    transform: translate(-50%, -50%);
+    height: 45px;
+    width: 130px;
+    border-radius: 30px;
+    border: none;
+}
+
+button {
+    /* margin-left: 600px; */
+    background-color: black;
+    color: white;
+    z-index: 10;
+    font-size: 28px;
+    font-family: papyrus;
+    transition: all 0.5s ease;
+}
+
+button:focus {
+    border: none;
+    outline: none;
+}
+
+span {
+    background: inherit;
+}
+
+.outer span:nth-child(1) {
+    filter: blur(7px);
+}
+
+.outer span:nth-child(2) {
+    filter: blur(14px);
+}
+
+.outer:hover {
+    margin-left: 600px;
+    animation: glow 1s linear infinite;
+}
+
+.outer:hover button {
+    letter-spacing: 2px;
+}
+
+@keyframes glow {
+    0% {
+        filter: hue-rotate(10deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

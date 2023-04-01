@@ -1,0 +1,98 @@
+{% comment %} {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block search %}
+
+{% endblock %}
+{% block nav %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'newcar' %}"><span class="glyphicon glyphicon-align-justify"></span> New Added Car</a></li>
+        <li><a href="{% url 'popularcar' %}"><span class="glyphicon glyphicon-star"></span> Popular Car</a></li>
+        <li><a href="{% url 'contact' %}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+      </ul>
+    </div>
+{% endblock %}
+{% block body %}
+<div class ='col-sm-5 col-sm-offset-3'>
+    <h1>{{ title }}</h1><hr>
+
+    <form method="POST" action="">{% csrf_token %}
+      {{form|crispy}}
+        <div class="pull-right">
+            <input type="submit" class="btn btn-primary" value="Send"/>
+        </div>
+
+</form>
+</div>
+{% endblock %}
+
+
+ {% endcomment %}
+
+ {% load crispy_forms_tags %}
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact US</title>
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/index.css' %} ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> 
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg py-3 py-lg-0 px-lg-5" id="bar" style="
+    height: 47px;">
+        <a href="{% url 'home' %}" class="navbar-brand ml-lg-3">
+         
+            <img src="{% static 'img/autoz.png' %}" alt="AutoZ" style="width:auto;height:50px;">
+            
+        </a>
+        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+    <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+        <div class="navbar-nav mx-auto py-0">
+            <a href="{% url 'newcar' %}" class="nav-item nav-link active" id="navele"> Newly Added Car</a>
+            <a href="{% url 'popularcar' %}" class="nav-item nav-link" id="navele"> Popular car</a>
+            <a href="{% url 'contact' %}" class="nav-item nav-link" id="navele">Contact</a>
+        </div>
+        {% comment %} <a href="{% url 'profile' user.id %}" id="login" class="btn btn-primary py-2 px-4 mx-3 d-none d-lg-block">Profile</a> {% endcomment %}
+        <a href="{% url 'logout' %}" id="register" class="btn btn-primary py-2 px-4 d-none d-lg-block"> Logout</a>
+    </div>
+    {% comment %} {% endif %} {% endcomment %}
+    </nav>
+    
+    <div class ='col-sm-5 col-sm-offset-3'>
+        <h1>{{ title }}</h1><hr>
+    
+        <form method="POST" action="">{% csrf_token %}
+          {{form|crispy}}
+            <div class="pull-right">
+                <input style="
+                font-size: 15px;
+                margin-top: 31px;
+                width: 50px;
+                margin-right: 560px;
+               
+                height: 30px;
+            " type="submit" class="btn btn-primary" value="Send"/>
+            </div>
+    
+    </form>
+    </div>
+</body>
+
+</html>

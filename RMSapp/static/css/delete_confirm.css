@@ -1,0 +1,31 @@
+body{
+    background: url('/static/img/delete.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1{
+    font-size: 30px;
+    margin-top: 10%;
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: gold;
+}
+.box{
+        
+        width: 20%;
+        border-radius: 5px;
+        padding:1px 0px;
+        /* background: deeppink; */
+        color:silver;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        font-size: 25px;
+        margin-top: 25px;
+        font-family: Papyrus;
+        border-radius: 20px;
+        margin-left: 650px;
+     
+}
+
